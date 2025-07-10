@@ -1,11 +1,12 @@
-FROM python:3
+FROM python:3.10
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN pip install Django==3.2
+COPY requirements.txt /app/
+RUN pip install -r requirements.txt
 
 COPY . /app/
 
