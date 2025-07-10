@@ -12,6 +12,6 @@ COPY . /app/
 
 RUN python manage.py migrate
 
-EXPOSE 8000
+EXPOSE 8100
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
