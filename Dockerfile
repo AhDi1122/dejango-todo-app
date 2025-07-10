@@ -1,8 +1,16 @@
-From python:3
-Run pip install django==3.2
+FROM python:3
 
-COPY . . 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-Run python manage.py migrate
-Expose 8000
+WORKDIR /app
+
+RUN pip install Django==3.2
+
+COPY . /app/
+
+RUN python manage.py migrate
+
+EXPOSE 8000
+
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
